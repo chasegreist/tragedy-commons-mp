@@ -2,6 +2,7 @@
   builder = "dockerfile"
   dockerfile = "./Dockerfile"
   build_command = "docker build -t tragedy-commons-server ."
+  build_path = "."
 
 [deploy]
   start_command = "node dist/index.js"
