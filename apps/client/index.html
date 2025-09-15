@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tragedy of the Commons</title>
+    <style>
+      html, body, #app { width: 100%; height: 100%; margin: 0; padding: 0; background: #111; color: #eee; }
+      .hud { position: absolute; top: 8px; left: 8px; font-family: sans-serif; z-index: 2; }
+      .hud input { padding: 4px 6px; }
+      .hud button { padding: 4px 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="hud">
+      <input id="name" placeholder="Name" maxlength="16" />
+      <button id="join">Join</button>
+      <span id="timer"></span>
+      <span id="score"></span>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "tragedy-commons-mp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Tragedy of the Commons 2D multiplayer game (Phaser + Colyseus)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "predev": "pnpm --filter @game/shared build",
+    "dev": "concurrently -n shared,server,client -c green,cyan,magenta \"pnpm --filter @game/shared dev\" \"pnpm --filter @game/server dev\" \"pnpm --filter @game/client dev\"",
+    "dev:server": "pnpm --filter @game/server dev",
+    "dev:client": "pnpm --filter @game/client dev",
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "pnpm -r run lint"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
