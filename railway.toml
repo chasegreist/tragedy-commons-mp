@@ -1,6 +1,7 @@
 [build]
   builder = "dockerfile"
   dockerfile = "./Dockerfile"
+  build_command = "docker build -t tragedy-commons-server ."
 
 [deploy]
   start_command = "node dist/index.js"
