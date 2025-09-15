@@ -14,11 +14,16 @@ COPY packages/shared/package.json ./packages/shared/
 # Install all dependencies including devDependencies for building
 RUN pnpm install --frozen-lockfile --prod=false
 
+# Install TypeScript globally for the build
+RUN npm install -g typescript
+
 # Copy source code
 COPY . .
 
 # Build the application
-RUN cd apps/server && pnpm exec tsc
+WORKDIR /app/apps/server
+RUN tsc
+WORKDIR /app
 
 # 2) Runtime stage
 FROM node:20-alpine
