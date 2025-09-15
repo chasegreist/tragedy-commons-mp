@@ -11,14 +11,14 @@ COPY package.json pnpm-lock.yaml ./
 COPY apps/server/package.json ./apps/server/
 COPY packages/shared/package.json ./packages/shared/
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile
+# Install all dependencies including devDependencies for building
+RUN pnpm install --frozen-lockfile --prod=false
 
 # Copy source code
 COPY . .
 
 # Build the application
-RUN pnpm --filter @game/server build
+RUN cd apps/server && pnpm exec tsc
 
 # 2) Runtime stage
 FROM node:20-alpine
