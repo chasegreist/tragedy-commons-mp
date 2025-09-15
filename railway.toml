@@ -1,9 +1,9 @@
 [build]
-  builder = "nixpacks"
-  buildCommand = "cd apps/server && pnpm install && pnpm build"
-  startCommand = "cd apps/server && pnpm start"
+  builder = "dockerfile"
+  dockerfile = "apps/server/Dockerfile"
 
 [deploy]
-  startTimeout = 30
-  healthcheckPath = "/health"
-  healthcheckTimeout = 30
+  start_command = "node dist/index.js"
+  start_timeout = 30
+  healthcheck_path = "/health"
+  healthcheck_timeout = 30
