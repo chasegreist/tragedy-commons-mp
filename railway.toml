@@ -1,0 +1,9 @@
+[build]
+  builder = "nixpacks"
+  buildCommand = "cd apps/server && pnpm install && pnpm build"
+  startCommand = "cd apps/server && pnpm start"
+
+[deploy]
+  startTimeout = 30
+  healthcheckPath = "/health"
+  healthcheckTimeout = 30
